@@ -1,0 +1,24 @@
+
+
+{
+  "name": "Crypto Vault Penetration",
+  "short_name": "CryptoVault",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#0f0f0f",
+  "description": "A powerful cybersecurity tool interface",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/jpg"
+    },
+    {
+      "src": "icons/icon-512.jpg",
+      "sizes": "512x512",
+      "type": "image/jpg"
+    }
+  ]
+}
