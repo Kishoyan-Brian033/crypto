@@ -1,0 +1,421 @@
+
+  body {
+    background: linear-gradient(180deg, #0C0C30, #0D1445);
+    color: #00E0FF;
+    font-family: 'Courier New', monospace;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.4;
+    font-size: 14px;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .matrix-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0.15;
+    pointer-events: none;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 224, 255, 0.05),
+      rgba(0, 224, 255, 0.05) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  @keyframes flicker {
+    0% { opacity: 0.8; }
+    5% { opacity: 0.5; }
+    10% { opacity: 0.6; }
+    15% { opacity: 0.9; }
+    25% { opacity: 0.5; }
+    30% { opacity: 1; }
+    100% { opacity: 1; }
+  }
+  body {
+    animation: flicker 0.5s infinite;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #00E0FF;
+    padding-bottom: 10px;
+    text-shadow: 0 0 5px #00E0FF;
+  }
+
+  .scanner-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #FF3B3F;
+    animation: pulse 1.5s infinite;
+    box-shadow: 0 0 5px #FF3B3F;
+  }
+
+  .status-indicator.active {
+    background-color: #00FFB2;
+    box-shadow: 0 0 10px #00FFB2;
+  }
+
+  @keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+  }
+
+ .log-container {
+    max-height: 50vh;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    border: 1px solid #00E0FF; /* Kept original blue border */
+    padding: 15px;
+    background-color: rgba(12, 12, 48, 0.5);
+    position: relative;
+    box-shadow: 0 0 15px rgba(0, 224, 255, 0.3); /* Original blue glow */
+}
+
+.log-box {
+    white-space: pre-wrap;
+    font-family: 'Courier New', monospace;
+}
+
+.log-entry {
+    margin-bottom: 3px;
+    color: #00FF77; /* Luminous green text */
+    position: relative;
+    padding-left: 15px;
+    text-shadow: 0 0 5px #00FF77; /* Green glow */
+    transition: color 0.3s;
+}
+
+.log-entry:hover {
+    color: #00FFB2; /* Brighter green on hover */
+    text-shadow: 0 0 8px #00FFB2;
+}
+
+.log-entry::before {
+    content: ">";
+    position: absolute;
+    left: 0;
+    color: #00E0FF; /* Kept original blue */
+    text-shadow: 0 0 5px #00E0FF;
+}
+
+/* Optional: Add green pulse for important messages */
+@keyframes green-pulse {
+    0% { text-shadow: 0 0 5px #00FF77; }
+    50% { text-shadow: 0 0 15px #00FFB2; }
+    100% { text-shadow: 0 0 5px #00FF77; }
+}
+
+.log-entry.highlight {
+    animation: green-pulse 2s infinite;
+}
+
+/* Scrollbar styling (visible despite your webkit-scrollbar setting) */
+.log-container::-webkit-scrollbar {
+    display: block;
+    width: 6px;
+}
+
+.log-container::-webkit-scrollbar-thumb {
+    background: #00FF77;
+    border-radius: 3px;
+    box-shadow: 0 0 5px #00FF77;
+}
+
+/* Pulsing animation for active logs */
+@keyframes log-pulse {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+.log-entry.highlight {
+    animation: log-pulse 1.5s infinite;
+    color: #00FFB2;
+}
+  .scan-animation {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: #00E0FF;
+    font-size: 12px;
+    text-shadow: 0 0 5px #00E0FF;
+    animation: scanGlow 1s infinite alternate;
+  }
+
+  .control-panel {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .control-btn {
+    color: white;
+    padding: 10px 35px;
+    font-family: 'Courier New', monospace;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    font-weight: bold;
+    text-shadow: 0 0 2px #000;
+    border-radius: 10px;
+  }
+
+  #startBtn {
+    background: linear-gradient(90deg, #7F00FF, #00BFFF);
+    box-shadow: 0 0 10px #00BFFF;
+  }
+
+  #stopBtn {
+    background-color: #FF3B3F;
+    box-shadow: 0 0 10px #FF3B3F;
+  }
+
+  #exportBtn {
+    background-color: #1A79D1;
+    box-shadow: 0 0 10px #1A79D1;
+  }
+
+  .control-btn::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 50px;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: rotate(30deg);
+    transition: all 0.3s;
+  }
+
+  .control-btn:hover::after {
+    left: 120%;
+  }
+
+  .stats-panel {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    background: rgba(13, 20, 69, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #00E0FF;
+    box-shadow: 0 0 10px rgba(0, 224, 255, 0.3);
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-value {
+    font-size: 18px;
+    color: #00E0FF;
+    font-weight: bold;
+    text-shadow: 0 0 5px #00E0FF;
+  }
+
+  .found-wallets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .wallet-card {
+    background: rgba(12, 12, 48, 0.5);
+    border-radius: 6px;
+    padding: 15px;
+    border-left: 4px solid #00E0FF;
+    transition: transform 0.3s;
+    box-shadow: 0 0 10px rgba(0, 224, 255, 0.2);
+  }
+
+  .wallet-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 224, 255, 0.5);
+  }
+
+  .wallet-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: #00E0FF;
+    border-bottom: 1px solid #00E0FF;
+    padding-bottom: 10px;
+    text-shadow: 0 0 3px #00E0FF;
+  }
+
+  .crypto-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .crypto-icon {
+    width: 24px;
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .crypto-name {
+    width: 60px;
+  }
+
+  .crypto-value {
+    flex-grow: 1;
+    text-align: right;
+    font-family: monospace;
+  }
+
+  .wallet-actions {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #333;
+  }
+
+  .explorer-link {
+    color: #1A79D1;
+    text-decoration: none;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-shadow: 0 0 2px #1A79D1;
+  }
+
+  .explorer-link:hover {
+    text-decoration: underline;
+  }
+
+  .btc-icon { color: #F7931A; text-shadow: 0 0 5px #F7931A; }
+  .bnb-icon { color: #F3BA2F; text-shadow: 0 0 5px #F3BA2F; }
+  .sgl-icon { color: #00FFB2; text-shadow: 0 0 5px #00FFB2; }
+
+  .scanning {
+    animation: scanGlow 1.5s infinite alternate;
+  }
+
+  @keyframes scanGlow {
+    from { box-shadow: 0 0 5px rgba(0, 224, 255, 0.3); }
+    to { box-shadow: 0 0 20px rgba(0, 224, 255, 0.8); }
+  }
+
+  .highlight {
+    animation: highlight 0.5s;
+  }
+
+  @keyframes highlight {
+    from { background-color: rgba(0, 224, 255, 0.3); }
+    to { background-color: transparent; }
+  }
+
+  .matrix-char {
+    position: absolute;
+    color: #00E0FF;
+    font-family: monospace;
+    animation: matrix-fall linear infinite;
+  }
+
+  @keyframes matrix-fall {
+    to { transform: translateY(100vh); }
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .boot-sequence {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #0C0C30;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    font-family: 'Courier New', monospace;
+    color: #00E0FF;
+  }
+
+  .boot-line {
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: boot-fade 0.5s forwards;
+  }
+  .matrix-name {
+  position: absolute;
+  font-family: 'Courier New', monospace;
+  animation: matrix-fall linear infinite;
+  pointer-events: none;
+  user-select: none;
+  font-size: 18px;
+  white-space: nowrap;
+  opacity: 0.9;
+  z-index: 10;
+}
+
+/* Trail effect */
+.matrix-name::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -20px;
+  height: 30px;
+  background: linear-gradient(to bottom, 
+    rgba(0, 255, 178, 0.3) 0%, 
+    rgba(0, 255, 178, 0) 100%);
+}
+
+@keyframes matrix-fall {
+  to { transform: translateY(100vh); }
+}
+
+  @keyframes boot-fade {
+    to { opacity: 1; }
+  }
+
+  .boot-prompt {
+    color: #FF3B3F;
+  }

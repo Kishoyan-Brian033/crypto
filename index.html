@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRYPTO VAULT PENETRATION SYSTEM</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <!-- Matrix Rain Background -->
+  <div id="matrixRain" class="matrix-rain"></div>
+
+  <!-- Boot Sequence -->
+  <div id="bootSequence" class="boot-sequence">
+    <div class="boot-line" style="animation-delay: 0.5s">INITIALIZING CRYPTO VAULT PENETRATION SYSTEM...</div>
+    <div class="boot-line" style="animation-delay: 1.5s">LOADING BLOCKCHAIN PROTOCOLS...</div>
+    <div class="boot-line" style="animation-delay: 2.5s">CONNECTING TO TOR NETWORK...</div>
+    <div class="boot-line" style="animation-delay: 3.5s">ESTABLISHING ENCRYPTED CHANNEL...</div>
+    <div class="boot-line" style="animation-delay: 4.5s">SYSTEM READY</div>
+    <div class="boot-line boot-prompt" style="animation-delay: 5.5s">PRESS ANY KEY TO CONTINUE</div>
+  </div>
+
+  <!-- Main Interface (initially hidden) -->
+  <div id="mainInterface" style="display: none;">
+    <div class="header">
+      <h2><i class="fas fa-skull"></i> CRYPTO VAULT PENETRATION SYSTEM :: WILLIAM SMITH</h2>
+      <div class="scanner-status">
+        <span>STATUS:</span>
+        <div id="statusIndicator" class="status-indicator"></div>
+        <span id="statusText">OFFLINE</span>
+      </div>
+    </div>
+
+    <div class="stats-panel">
+      <div class="stat-item">
+        <div>SCANNED</div>
+        <div id="scannedCount" class="stat-value">0</div>
+      </div>
+      <div class="stat-item">
+        <div>FOUND</div>
+        <div id="foundCount" class="stat-value">0</div>
+      </div>
+      <div class="stat-item">
+        <div>SPEED</div>
+        <div id="speedValue" class="stat-value">0/s</div>
+      </div>
+    </div>
+
+    <div id="logContainer" class="log-container">
+      <div id="scanAnimation" class="scan-animation">[SCANNING...]</div>
+      <div id="logBox" class="log-box"></div>
+    </div>
+    
+    <div class="control-panel">
+      <button id="stopBtn" class="control-btn">STOP</button>
+      <button id="startBtn" class="control-btn">START</button>
+      <button id="exportBtn" class="control-btn">EXPORT</button>
+    </div>
+    
+    <div id="foundWallets" class="found-wallets"></div>
+  </div>
+
+  <!-- Audio Elements -->
+  <audio id="scanSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-positive-interface-902.mp3"></audio>
+  <audio id="foundSound" src="https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3"></audio>
+  <audio id="startupSound" src="https://assets.mixkit.co/sfx/preview/mixkit-computer-system-fail-1998.mp3"></audio>
+  <audio id="typingSound" src="https://assets.mixkit.co/sfx/preview/mixkit-fast-typing-on-typewriter-1380.mp3"></audio>
+ 
+  <script src="script.js"></script>
+</body>
+</html>
